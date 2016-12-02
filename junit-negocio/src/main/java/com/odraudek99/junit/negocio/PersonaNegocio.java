@@ -14,6 +14,16 @@ public class PersonaNegocio {
 	@Autowired
 	PersonaDao personaDao;
 
+	@PostConstruct
+	public void initIt() throws Exception {
+	  System.out.println("Método @PostConstruct " );
+	}
+
+	@PreDestroy
+	public void cleanUp() throws Exception {
+	  System.out.println("Método @PreDestroy");
+	}
+	
 	public Persona obetnerPersona(Integer id) {
 		return personaDao.obetnerPersona(id);
 	}
